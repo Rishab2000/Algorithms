@@ -6,7 +6,8 @@ def main():
     binarySearch_1Test_3()
 
 def binarySearch_1(arr, low, high, x):
-    while high >= low: ## 2 steps
+    while high >= low: ## 2 steps (depends on N = 2*N
+        # )
         mid = int(low + (high - low)//2) ## 5 steps
         if arr[mid] == x: ## 2 step
             return mid ## 1 step
@@ -19,24 +20,13 @@ def binarySearch_1(arr, low, high, x):
 
 ## total steps = 18 steps
 
-def binarySearch_1Test_4():
+def binarySearch_1Test_7():
     arr = [1, 5, 7, 8, 9, 15, 20]
     n = len(arr)
     x = 15
     print(binarySearch_1(arr,0,n-1,x))
 
-def binarySearch_1Test_1(n,m,i):
-    time_start = time.perf_counter()
-    for j in range(i):
-        res = [random.randrange(1, m, 1) for i in range(n)]
-        res_num = res[n-2]
-        high = len(res)
-        binarySearch_1(res, 0, high - 1, res_num)
-
-    time_elapsed = ((time.perf_counter()) - (time_start))
-    print(time_elapsed)
-
-def binarySearch_1Test_2(n, m, i):
+def binarySearch_1Test_1(n, m, i):
     time_start = time.perf_counter()
     for j in range(i+1):
         res = [random.randrange(1, m, 1) for i in range(n)]
@@ -49,7 +39,19 @@ def binarySearch_1Test_2(n, m, i):
 
 def binarySearch_1Test_3():
     for i in range(2,8):
-        binarySearch_1Test_1(10**i,10**5, 1)
+        binarySearch_1Test_1(10**i,10**5, 10**2)
 
+def binarySearch_1Test_4():
+    for i in range(2,8):
+        binarySearch_1Test_1(10**3,10**i, 10**2)
+
+def binarySearch_1Test_5():
+    for i in range(2,8):
+        binarySearch_1Test_1(10**4,10**5, 10**i)
+        
+def binarySearch_1Test_6():
+    for i in range(2,8):
+        binarySearch_1Test_1(10**i,10**5, 1)
+        
 if __name__ =="__main__":
     main()
