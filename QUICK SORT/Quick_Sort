@@ -1,0 +1,59 @@
+  
+import random
+import time
+
+def main():
+    quickSort_1Test_3()
+
+def quickSort_1(arr, low, high):
+    if low < high:
+        p = partition(arr,low,high) 
+        quickSort_1(arr,low,p-1)
+        quickSort_1(arr,p+1,high) 
+
+
+def partition(arr,low,high):
+    i = low ## 1 step
+    pvot = high ## 1 step
+    for j in range(low,high): 
+        if arr[j] < pvot: 
+            arr[i], arr[j] = arr[j], arr[i]
+            i = i + 1 
+
+    arr[i], arr[high] = arr[high], arr[i] 
+    return(i) 
+
+def quickSort_1Test_1():
+    arr = [10, 7, 8, 9, 1, 5]
+    n = len(arr)
+    quickSort_1(arr,0,n-1)
+    print(arr)
+
+def quickSort_1Test_2(n, m, i):
+    time_start = time.perf_counter()
+    for j in range(i+1):
+        res = [random.randrange(1, m, 1) for i in range(n)]
+        high = len(res)
+        quickSort_1(res, 0, high-1)
+
+    time_elapsed = ((time.perf_counter()) - (time_start))
+    print(time_elapsed)
+
+
+def quickSort_1Test_3():
+    for i in range(2,8):
+        quickSort_1Test_2(10**3,10**i, 10**2)
+
+
+def quickSort_1Test_4():
+    for i in range(2,8):
+        quickSort_1Test_2(3**i,10**4, 10**2)
+
+
+def quickSort_1Test_5():
+    for i in range(2,8):
+        quickSort_1Test_2(10**4,10**3, 10**i)
+
+
+if __name__ =="__main__":
+    main()
