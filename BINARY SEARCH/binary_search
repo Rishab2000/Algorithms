@@ -6,19 +6,17 @@ def main():
     binarySearch_1Test_3()
 
 def binarySearch_1(arr, low, high, x):
-    while high >= low: ## 2 steps (depends on N = 2*N
-        # )
-        mid = int(low + (high - low)//2) ## 5 steps
-        if arr[mid] == x: ## 2 step
-            return mid ## 1 step
-        if arr[mid] < x:## 2 step
+    while high >= low:
+        mid = int(low + (high - low)//2)
+        if arr[mid] == x: 
+            return mid 
+        if arr[mid] < x:
             low = mid + 1
-            ## 2 step
-        if arr[mid] > x: ## 2 step
-            high = mid - 1 ## 2 step
-    return -1 ## 1 step
+            
+        if arr[mid] > x:
+            high = mid - 1 
+    return -1
 
-## total steps = 18 steps
 
 def binarySearch_1Test_7():
     arr = [1, 5, 7, 8, 9, 15, 20]
