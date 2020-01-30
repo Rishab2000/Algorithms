@@ -13,8 +13,8 @@ def quickSort_1(arr, low, high):
 
 
 def partition(arr,low,high):
-    i = low ## 1 step
-    pvot = high ## 1 step
+    i = low 
+    pvot = high 
     for j in range(low,high): 
         if arr[j] < pvot: 
             arr[i], arr[j] = arr[j], arr[i]
